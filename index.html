@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./styles/Tags.css">
+  <link rel="stylesheet" href="./styles/recipeCard.css">
+  <link rel="stylesheet" href="./styles/main.css">
+
+  <title>Les Petits Plats</title>
+</head>
+<body>
+  <header>
+    <div id="logo"></div>
+  </header>
+
+  <section class="searchTools">
+    <div>
+      <input type="text" placeholder="Rechercher une recette">
+      <!-- Add the magnifier as an after -->
+    </div>
+
+    <div id="tags">
+      <!-- Custom Select Buttons -->
+      <div class="selector" >
+        <label for="selecField" class="sorted">Trier par</label>
+        <div name="selectField" class="selectField" role="button" aria-haspopup="listbox" aria-expanded="false" tabindex="0">
+          <p id="selectText">Popularité</p>
+          <span class="fa-solid fa-angle-down arrow"></span>
+        </div>
+        <ul id="list" class="hide">
+          <li class="options" tabindex="0" aria-label="trier par date">Date</li>
+          <li class="options" tabindex="0" aria-label="trier par titre">Titre</li>
+        </ul>
+      </div>
+
+      <!-- Custom Select Buttons -->
+      <div class="selector" >
+        <label for="selecField" class="sorted">Trier par</label>
+        <div name="selectField" class="selectField" role="button" aria-haspopup="listbox" aria-expanded="false" tabindex="0">
+          <p id="selectText">Popularité</p>
+          <span class="fa-solid fa-angle-down arrow"></span>
+        </div>
+        <ul id="list" class="hide">
+          <li class="options" tabindex="0" aria-label="trier par date">Date</li>
+          <li class="options" tabindex="0" aria-label="trier par titre">Titre</li>
+        </ul>
+      </div>
+
+      <!-- Custom Select Buttons -->
+      <div class="selector" >
+        <label for="selecField" class="sorted">Trier par</label>
+        <div name="selectField" class="selectField" role="button" aria-haspopup="listbox" aria-expanded="false" tabindex="0">
+          <p id="selectText">Popularité</p>
+          <span class="fa-solid fa-angle-down arrow"></span>
+        </div>
+        <ul id="list" class="hide">
+          <li class="options" tabindex="0" aria-label="trier par date">Date</li>
+          <li class="options" tabindex="0" aria-label="trier par titre">Titre</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <main class="displayRecipes">
+    <!-- Filled dynamically -->
+    <div class="main-card">
+      <div class="main-img-container" id="one"></div>
+
+      <div>
+        <h3>Auberge La Cannebière</h3>
+        <span id="time"></span>
+      </div>
+      
+      <div class="recipe">
+        <div class="ingredientList">
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-card">
+      <div class="main-img-container" id="one"></div>
+
+      <div>
+        <h3>Auberge La Cannebière</h3>
+        <span id="time"></span>
+      </div>
+      
+      <div class="recipe">
+        <div class="ingredientList">
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-card">
+      <div class="main-img-container" id="one"></div>
+
+      <div>
+        <h3>Auberge La Cannebière</h3>
+        <span id="time"></span>
+      </div>
+      
+      <div class="recipe">
+        <div class="ingredientList">
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
