@@ -1,4 +1,14 @@
 .displayRecipes {
   display: flex;
   flex-wrap: wrap;
+  margin: 0px auto;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 1480px) {
+  .displayRecipes {
+    justify-content: space-around;
+  }
 }

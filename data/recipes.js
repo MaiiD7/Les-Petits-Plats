@@ -1,11 +1,11 @@
-const recipes = [
+export const recipes = [
   {
       "id": 1,
       "name" : "Limonade de Coco",
       "servings" : 1,
       "ingredients": [
           {
-              "ingredient" : "Lait de coco",
+              "ingredient" : "Lait de Coco",
               "quantity" : 400,
               "unit" : "ml"
           },
@@ -14,13 +14,13 @@ const recipes = [
               "quantity" : 2
           },
           {
-              "ingredient" : "Crème de coco",
+              "ingredient" : "Crème de Coco",
               "quantity" : 2,
               "unit" : "cuillères à soupe"
           },
           {
               "ingredient" : "Sucre",
-              "quantite" : 30,
+              "quantity" : 30,
               "unit" : "grammes"
           },
           {
@@ -28,7 +28,7 @@ const recipes = [
           }
       ],
       "time": 10,
-      "description": "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
+      "description": "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la Crème de Coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
       "appliance": "Blender",
       "ustensils": ["cuillère à Soupe", "verres", "presse citron" ]
   },
@@ -52,7 +52,7 @@ const recipes = [
           },
           {
               "ingredient" : "Carotte",
-              "quantite" : 1
+              "quantity" : 1
           },
           {
               "ingredient" : "Citron Vert",
@@ -65,12 +65,12 @@ const recipes = [
           }
       ],
       "time": 60,
-      "description": "Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible faites-le le soir pour le lendemain. Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois ci dans un Saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur vous pouver ajouter 1 à 2 cuillères à soupe de Crème de coco",
+      "description": "Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible faites-le le soir pour le lendemain. Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois ci dans un Saladier. Ajouter le lait de Coco. Pour ajouter un peu plus de saveur vous pouver ajouter 1 à 2 cuillères à soupe de Crème de Coco",
       "appliance": "Saladier",
       "ustensils": ["presse citron"]
   },{
       "id": 3,
-      "name": "Poulet coco réunionnais",
+      "name": "Poulet Coco réunionnais",
       "servings": 4,
       "ingredients": [
           {
@@ -78,7 +78,7 @@ const recipes = [
               "quantity" : 1          
           },
           {
-              "ingredient": "Lait de coco",
+              "ingredient": "Lait de Coco",
               "quantity" : 400,
               "unit" : "ml"
           },
@@ -102,7 +102,7 @@ const recipes = [
           }
       ],
       "time": 80,
-      "description": "Découper le poulet en morceaux, les faire dorer dans une cocotte avec de l'huile d'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz",
+      "description": "Découper le poulet en morceaux, les faire dorer dans une Cocotte avec de l'huile d'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de Coco ainsi que le poivron et l'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz",
       "appliance": "Cocotte",
       "ustensils": ["couteau"]
   },{
@@ -178,7 +178,7 @@ const recipes = [
          }
       ],
       "time": 45,
-      "description": "Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes",
+      "description": "Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de Crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes",
       "appliance":"Four",
       "ustensils": ["moule à tarte", "râpe à fromage", "couteau"]
   },
@@ -217,7 +217,7 @@ const recipes = [
           }
       ],
       "time": 50,
-      "description": "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crême fraiche. Laisser cuire au four pendant 30 minutes",
+      "description": "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la Crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crême fraiche. Laisser cuire au four pendant 30 minutes",
       "appliance": "Four",
       "ustensils": ["moule à tarte", "saladier", "fourchette"]
   },{
@@ -741,7 +741,7 @@ const recipes = [
           }
       ],
       "time": 30,
-      "description":"Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraiche à la viande hachée. Serivir.",
+      "description":"Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la Crème fraiche à la viande hachée. Serivir.",
       "appliance": "Casserolle.",
       "ustensils":["Cuillère en bois", "louche", "couteau"]
   },
@@ -816,7 +816,7 @@ const recipes = [
           }
       ],
       "time": 60,
-      "description":"Etaler la pate dans un moule et la piquer.Parsemer de beurre. Faire chauffer les lardon dans une poêle. Battre les oeufs en ajoutant la crème fraîche et le lait. Finalement ajouter les lardons, salez poivrez à votre gout. Verser l'ensemble sur la pâte. Cuire environ 50 minutes.",
+      "description":"Etaler la pate dans un moule et la piquer.Parsemer de beurre. Faire chauffer les lardon dans une poêle. Battre les oeufs en ajoutant la Crème fraîche et le lait. Finalement ajouter les lardons, salez poivrez à votre gout. Verser l'ensemble sur la pâte. Cuire environ 50 minutes.",
       "appliance": "Four",
       "ustensils":["moule à gateaux", "rouleau à patisserie", "fouet"]
   },
@@ -921,9 +921,9 @@ const recipes = [
           }
       ],
       "time": 25,
-      "description":"Verser de l'huile dans une cocotte minute couper les légumes et les verser dans l'huile chaude. Laisser cuire et remuer pendant 10 minutes. Passer aux mixer. Servir.",
+      "description":"Verser de l'huile dans une Cocotte minute couper les légumes et les verser dans l'huile chaude. Laisser cuire et remuer pendant 10 minutes. Passer aux mixer. Servir.",
       "appliance": "Mixer",
-      "ustensils":["cocotte minute", "couteau"]
+      "ustensils":["Cocotte minute", "couteau"]
   },
   {
       "id": 27,
@@ -990,7 +990,7 @@ const recipes = [
           }
       ],
       "time": 80,
-      "description":"Emincer les blanc de poireaux et les faire chauffer dans 25 grammes de beurre. AJouter les pommes de terres coupées en morceaux. Ajouter l'eau et laisser mijoter pour 45 minutes. Chauffer l'oseille avec le beurre restant puis incorporer le tout. Mixez. Ajoutez la crème. Bon appetit.",
+      "description":"Emincer les blanc de poireaux et les faire chauffer dans 25 grammes de beurre. AJouter les pommes de terres coupées en morceaux. Ajouter l'eau et laisser mijoter pour 45 minutes. Chauffer l'oseille avec le beurre restant puis incorporer le tout. Mixez. Ajoutez la Crème. Bon appetit.",
       "appliance": "Mixer",
       "ustensils":["casserolle","couteau"]
   },
@@ -1046,7 +1046,7 @@ const recipes = [
           }
       ],
       "time": 60,
-      "description":"Mettre tous les ingrédients dans une cocotte. ajouter de l'eau pour recouvrir l'ensemble et laisser cuirre à petit feur pour 1 heure. Passer au mixer. Salez, poivrez. C'est prêt",
+      "description":"Mettre tous les ingrédients dans une Cocotte. ajouter de l'eau pour recouvrir l'ensemble et laisser cuirre à petit feur pour 1 heure. Passer au mixer. Salez, poivrez. C'est prêt",
       "appliance": "Mixer",
       "ustensils":["casserolle", "cuillère en bois"]
   },
@@ -1184,7 +1184,7 @@ const recipes = [
           }
       ],
       "time": 25,
-      "description":"Eplucher les patates douces et coupez les en morceaux. Les faire cuire durant 20 minute dans une casserolle d'eau bouillante. Passer au mixer en ajoutant la crème et l'huile d'olive à son gout. Salez, poivrez. Pressez l'orange et ajouter le jus à l'ensemble. Servir.",
+      "description":"Eplucher les patates douces et coupez les en morceaux. Les faire cuire durant 20 minute dans une casserolle d'eau bouillante. Passer au mixer en ajoutant la Crème et l'huile d'olive à son gout. Salez, poivrez. Pressez l'orange et ajouter le jus à l'ensemble. Servir.",
       "appliance": "Mixer",
       "ustensils":["couteau", "économe", "cuillère en bois"]
   },
@@ -1223,9 +1223,9 @@ const recipes = [
           }
       ],
       "time": 25,
-      "description":"Éplucher les légumes, les couper en morceaux et les mettre à cuire dans une cocotte minute environ 15 minutes. Mixer en ajoutant le beurre, la crème. Ajouter le cumun et la noix de muscade.",
+      "description":"Éplucher les légumes, les couper en morceaux et les mettre à cuire dans une Cocotte minute environ 15 minutes. Mixer en ajoutant le beurre, la Crème. Ajouter le cumun et la noix de muscade.",
       "appliance": "Mixer",
-      "ustensils":["cocotte minute", "couteau", "cuillère en bois"]
+      "ustensils":["Cocotte minute", "couteau", "cuillère en bois"]
   },
   {
       "id": 36,
@@ -1616,7 +1616,7 @@ const recipes = [
           }
       ],
       "time": 5,
-      "description":"Mélanger le jus de citron avec le sucre et la mascarpone. Ajouter la crème fraiche. Mélanger le tout et mettre au congélateur pendant 1 heure. Servir",
+      "description":"Mélanger le jus de citron avec le sucre et la mascarpone. Ajouter la Crème fraiche. Mélanger le tout et mettre au congélateur pendant 1 heure. Servir",
       "appliance": "Saladier",
       "ustensils":["fouet", "verres", "cuillère en bois"]
   },
