@@ -1,6 +1,8 @@
 export default class DisplayRecipes {
   constructor(recipes) {
     this.recipes = recipes;
+    this.displayRecipes()
+    this.displayTags()
   }
 
   displayRecipes() {
@@ -9,6 +11,8 @@ export default class DisplayRecipes {
     this.recipes.forEach(recipe => {
       recipesList.appendChild(this.displayOneRecipe(recipe))
       this.displayIng(recipe)
+      this.displayApp(recipe)
+      this.displayUtils(recipe)
     });
   }
 
@@ -70,39 +74,41 @@ export default class DisplayRecipes {
     } 
   }
 
+  displayApp(recipe) {
+    const listApp = document.getElementById('list-app')
+    const appliance = document.createElement('li')
+    appliance.innerHTML = `${recipe.appliance}`
+    appliance.setAttribute('id',`${recipe.appliance}`)
+    if (!listApp.contains(document.getElementById(`${recipe.appliance}`))) {
+      listApp.appendChild(appliance)
+    }
+  }
+
+  displayUtils(recipe) {
+    const listUst = document.getElementById('list-ust')
+    recipe.ustensils.forEach((el) => {
+      const ustensil = document.createElement('li')
+      ustensil.innerHTML = `${el}`
+      ustensil.setAttribute('id',`${el}`)
+      if (!listUst.contains(document.getElementById(`${el}`))) {
+        listUst.appendChild(ustensil)
+      }
+    })
+    
+  }
+
   displayTags() {
     const tags = document.querySelectorAll('.selector')
     tags.forEach((tag) => {
       let clicked = false;
-      tag.addEventListener('click', (e) => {
-        e.stopPropagation()
-        tag.classList.add('openTag')
+      tag.addEventListener('click', () => {
         if (!clicked) {
-          const clickedTag = document.getElementById(`${tag.id}`)
-          const p = clickedTag.querySelector('#selectText')
-          p.classList.add('hide')
-          const ul = clickedTag.querySelector('ul')
-          ul.classList.remove('hide')
-          const input = clickedTag.querySelector('input')
-          input.classList.remove('hide')
-          const arrow = clickedTag.querySelector('.arrow')
-          arrow.classList.add('rotate-arrow')
-          clicked = true
+          clicked = this.showTag(tag, clicked)
         }    
       })
-      document.addEventListener('click', () => {
-        if (clicked) {
-          tag.classList.remove('openTag')
-          const clickedTag = document.getElementById(`${tag.id}`)
-          const p = clickedTag.querySelector('#selectText')
-          p.classList.remove('hide')
-          const ul = clickedTag.querySelector('ul')
-          ul.classList.add('hide')
-          const input = clickedTag.querySelector('input')
-          input.classList.add('hide')
-          const arrow = clickedTag.querySelector('.arrow')
-          arrow.classList.remove('rotate-arrow')
-          clicked = false
+      document.addEventListener('click', (e) => {
+        if (clicked && !tag.contains(e.target)) {
+          clicked = this.hideTag(tag, clicked)
         }
       })
       const clickedTag = document.getElementById(`${tag.id}`)
@@ -110,19 +116,41 @@ export default class DisplayRecipes {
       arrowClicked.addEventListener('click', (e) => {
         if (clicked) {
           e.stopPropagation()
-          tag.classList.remove('openTag')
-          const clickedTag = document.getElementById(`${tag.id}`)
-          const p = clickedTag.querySelector('#selectText')
-          p.classList.remove('hide')
-          const ul = clickedTag.querySelector('ul')
-          ul.classList.add('hide')
-          const input = clickedTag.querySelector('input')
-          input.classList.add('hide')
-          const arrow = clickedTag.querySelector('.arrow')
-          arrow.classList.remove('rotate-arrow')
-          clicked = false
+          clicked = this.hideTag(tag, clicked)
         }
       })
     }) 
+  }
+
+  showTag(tag, clicked) {
+    tag.classList.add('openTag')
+    const clickedTag = document.getElementById(`${tag.id}`)
+    const p = clickedTag.querySelector('#selectText')
+    p.classList.add('hide')
+    const ul = clickedTag.querySelector('ul')
+    ul.classList.remove('hide')
+    const input = clickedTag.querySelector('input')
+    input.classList.remove('hide')
+    const arrow = clickedTag.querySelector('.arrow')
+    arrow.classList.add('rotate-arrow')
+    clicked = true
+
+    return clicked
+  }
+
+  hideTag(tag, clicked) {
+    tag.classList.remove('openTag')
+    const clickedTag = document.getElementById(`${tag.id}`)
+    const p = clickedTag.querySelector('#selectText')
+    p.classList.remove('hide')
+    const ul = clickedTag.querySelector('ul')
+    ul.classList.add('hide')
+    const input = clickedTag.querySelector('input')
+    input.classList.add('hide')
+    const arrow = clickedTag.querySelector('.arrow')
+    arrow.classList.remove('rotate-arrow')
+    clicked = false
+
+    return clicked
   }
 }

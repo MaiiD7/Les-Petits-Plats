@@ -19,7 +19,7 @@
 .openTag {
   height: fit-content;
   max-height: 380px;
-  width: fit-content;
+  width: 50%;
   overflow: hidden;
 }
 
@@ -63,7 +63,8 @@
 .list {
   padding: 20px;
   column-count: 3;
-  column-width: 207px;
+  column-gap: 22px;
+  column-width: 33%;
   max-width: 700px;
   max-height: 350px;
 }
