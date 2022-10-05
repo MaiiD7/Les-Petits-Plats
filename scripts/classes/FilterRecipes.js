@@ -1,33 +1,23 @@
 export default class FilterRecipes {
 
-
-
-  constructor(recipes, ingredients, appliances, ustensils) {
+  constructor(recipes, tags) {
     this.recipes = recipes
-    this.ingredients = ingredients
-    this.appliances = appliances
-    this.ustensils = ustensils
+    this.tags = tags
   }
 
-  filterIng() {
-    const filteredIng = this.recipes
-
-    this.recipes.forEach((recipe) => {
-      console.log("done");
-      this.ingredients.forEach((ingTag) => {
-        let gotItFlag = false
-        recipe.ingredients.forEach((ing) => {
-          if (ing.ingredient === ingTag) {
-            gotItFlag = true
-          }
-        })
-        if (gotItFlag === false) {
-          console.log(filteredIng[this.recipes.indexOf(recipe)]);
-        }
-      })
+  filterRecipesByTags() {
+    const filteredRecipes = this.recipes.filter((recipe) => {
+      const ingredients = recipe.ingredients.map((ing) => ing.ingredient)
+      const appliances = recipe.appliance
+      const ustensils = recipe.ustensils
+      const elements = [... ingredients, appliances, ... ustensils]
+      if (this.tags.every((ing) => elements.includes(ing))) {
+        return recipe
+      }
+      
     })
 
-    return filteredIng
+    return filteredRecipes
   }
 
 }

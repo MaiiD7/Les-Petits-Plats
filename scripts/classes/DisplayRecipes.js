@@ -6,8 +6,9 @@ export default class DisplayRecipes {
   }
 
   displayRecipes() {
-    const recipesList = document.querySelector('.displayRecipes');
+    const recipesList = document.querySelector('.displayRecipes')
     recipesList.innerHTML = ""
+
     this.recipes.forEach(recipe => {
       recipesList.appendChild(this.displayOneRecipe(recipe))
       this.displayIng(recipe)
@@ -94,7 +95,6 @@ export default class DisplayRecipes {
         listUst.appendChild(ustensil)
       }
     })
-    
   }
 
   displayTags() {
