@@ -1,25 +1,25 @@
 export default class DisplayRecipes {
-  constructor(recipes) {
-    this.recipes = recipes;
-    this.displayRecipes()
-    this.displayTags()
-  }
 
-  displayRecipes() {
+  displayRecipes(recipes) {
     const recipesList = document.querySelector('.displayRecipes')
-    recipesList.innerHTML = ""
+    const tags = document.querySelectorAll('.list')
 
-    this.recipes.forEach(recipe => {
+    recipesList.innerHTML = ""
+    tags.forEach(tag =>  tag.innerHTML = "")
+
+    recipes.forEach(recipe => {
       recipesList.appendChild(this.displayOneRecipe(recipe))
       this.displayIng(recipe)
       this.displayApp(recipe)
       this.displayUtils(recipe)
+      this.displayTags()
     });
   }
 
   displayOneRecipe(recipe) {
     const mainCard = document.createElement("div");
     mainCard.classList.add("main-card")
+    mainCard.setAttribute('id', `${recipe.id}`)
     mainCard.innerHTML = `
       <div class="main-img-container" id="one"></div>
 
