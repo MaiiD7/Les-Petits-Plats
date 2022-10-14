@@ -6,10 +6,11 @@ export default class FilterRecipes {
     this.display = display
     this.recipes = recipes
     this.tags = tags
+    this.filteredRecipes = recipes
   }
 
   filterRecipesByTags() {
-    const filteredRecipes = this.recipes.filter((recipe) => {
+    this.filteredRecipes = this.recipes.filter((recipe) => {
       const ingredients = recipe.ingredients.map((ing) => ing.ingredient)
       const appliances = recipe.appliance
       const ustensils = recipe.ustensils
@@ -20,7 +21,7 @@ export default class FilterRecipes {
       
     })
 
-    return filteredRecipes
+    return this.filteredRecipes
   }
 
   addAndRemoveTagsToFilter = () => {
@@ -28,6 +29,10 @@ export default class FilterRecipes {
     const tagContainer = document.querySelector('.filters')
    
     allTags.forEach((filter) => {
+      if (this.tags.includes(filter.id)) {
+        filter.classList.add('hide')
+      }
+
       filter.addEventListener('click', (e) => {
         if (!this.tags.includes(e.target.id)) {
           this.tags.push(e.target.id);
@@ -42,18 +47,23 @@ export default class FilterRecipes {
           `
           tagContainer.appendChild(tagBox)
   
-          const filteredRecipes = this.filterRecipesByTags()
-          this.display.displayRecipes(filteredRecipes)
+          this.filteredRecipes = this.filterRecipesByTags()
+          this.display.displayRecipes(this.filteredRecipes)
           this.addAndRemoveTagsToFilter()
+          const mainInput = document.getElementById('mainInput')
+          this.filterRecipesBySearch(mainInput.value, this.filteredRecipes)
+
           
           const tagCloser = tagContainer.querySelectorAll('i')
           tagCloser.forEach((el) => {
             el.addEventListener('click', (e) => {
               e.target.parentNode.remove()
               this.tags = this.tags.filter((tag) => tag !== e.target.previousElementSibling.innerHTML)
-              const filteredRecipes = this.filterRecipesByTags()
-              this.display.displayRecipes(filteredRecipes)
+              this.filteredRecipes = this.filterRecipesByTags()
+              this.display.displayRecipes(this.filteredRecipes)
               this.addAndRemoveTagsToFilter()
+              const mainInput = document.getElementById('mainInput')
+              this.filterRecipesBySearch(mainInput.value, this.filteredRecipes)
             })
           })
         }
@@ -63,9 +73,9 @@ export default class FilterRecipes {
 
   mainInputFilter = () => {
     const mainInput = document.getElementById('mainInput')
-
+    
     mainInput.addEventListener('input', (e) => {
-      this.filterRecipesBySearch(e.target.value, this.recipes)
+      this.filterRecipesBySearch(e.target.value, this.filteredRecipes)
     })
   }
 
@@ -89,21 +99,40 @@ export default class FilterRecipes {
   }
 
   filterRecipesBySearch = (input, recipes) => {
-    recipes.forEach((recipe) => {
-      const ingredients = recipe.ingredients.map((ing) => ing.ingredient)
-      const appliances = recipe.appliance
-      const ustensils = recipe.ustensils
-      const description = recipe.description
-      const elements = [... ingredients, appliances, ... ustensils, description]
-      const lowerElements = elements.map(element => element.toLowerCase())
 
+    let allElements = []
+    
+    recipes.forEach((recipe) => {
       const matchingCard = document.getElementById(`${recipe.id}`)
       matchingCard.classList.remove('hide')
 
-      if (!lowerElements.includes(input.toLowerCase()) && !matchingCard.classList.contains('hide')) {
-        matchingCard.classList.add('hide')
-      }
+      if (input.length > 2) {
+        const title = recipe.name
+        const ingredients = recipe.ingredients.map((ing) => ing.ingredient)
+        const appliances = recipe.appliance
+        const ustensils = recipe.ustensils
+        const description = recipe.description
+        const elements = [... ingredients, appliances, ... ustensils, description, title]
+        const lowerElements = elements.map(element => element.toLowerCase())
 
+        if (!lowerElements.some((el) => el.includes(input.toLowerCase()))) {
+          matchingCard.classList.add('hide')
+        } else {
+          allElements = [...allElements, ...lowerElements]
+        }
+      }
+    })
+
+    
+    let allTags = document.getElementById('tags').querySelectorAll('li')
+    allTags.forEach((el) => {
+      el.classList.remove('hide')
+
+      if (input.length > 2) {
+        if (!allElements.includes(el.id.toLowerCase())) {
+          el.classList.add('hide')
+        }
+    }
     })
   }
 
