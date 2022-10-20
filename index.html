@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/index.css" />
 
-  <link
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
@@ -15,68 +15,96 @@
       referrerpolicy="no-referrer"
     />
 
-  <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/classes/DisplayRecipes.js"></script>
+    <script type="module" src="./scripts/classes/FilterRecipes.js"></script>
 
-  <title>Les Petits Plats</title>
-</head>
-<body>
-  <header>
-    <div id="logo">
-      <img src="./data/logo.png" alt="logo">
-    </div>
-  </header>
+    <title>Les Petits Plats</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <!-- Logo -->
+      <div id="logo">
+        <img src="./data/logo.png" alt="logo" />
+      </div>
+    </header>
 
-  <section class="searchTools">
-    <div class="searchBar">
-      <input id="mainInput" type="text" placeholder="Rechercher une recette">
-      <i class="fa-solid fa-magnifying-glass magnifyer"></i>
-    </div>
-
-    <div class="filters">
-      
-    </div>
-
-    <div id="tags">
-      <!-- Custom Select Buttons -->
-      <div class="selector" id="blue">
-        <div name="selectField" class="selectField" role="button" aria-haspopup="listbox" aria-expanded="false" tabindex="0">
-          <p id="selectText">Ingrédients</p>
-          <input id="blue-input" class="tag-input hide" type="text" placeholder="Rechercher un ingrédient">
-          <span class="fa-solid fa-angle-down arrow"></span>
-        </div>
-        <ul id="list-ing" class="list hide">
-
-        </ul>
+    <!-- Section containing the main search bar and the tag filters -->
+    <section class="searchTools">
+      <!-- Search Bar -->
+      <div class="searchBar">
+        <input
+          id="mainInput"
+          type="text"
+          placeholder="Rechercher une recette"
+        />
+        <span class="fa-solid fa-magnifying-glass magnifyer"></span>
       </div>
 
-      <!-- Custom Select Buttons -->
-      <div class="selector" id="green">
-        <div name="selectField" class="selectField" role="button" aria-haspopup="listbox" aria-expanded="false" tabindex="0">
-          <p id="selectText">Appareils</p>
-          <input id="green-input" class="tag-input hide" type="text" placeholder="Rechercher un appareil">
-          <span class="fa-solid fa-angle-down arrow"></span>
+      <div class="filters"></div>
+      <!-- Contains the 3 tag filters -->
+      <div id="tags">
+        <!-- Custom Select Buttons -->
+        <div class="selector" id="blue">
+          <div
+            class="selectField"
+            role="menu"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            tabindex="0"
+          >
+            <p class="selectText">Ingrédients</p>
+            <input
+              id="blue-input"
+              class="tag-input hide"
+              type="text"
+              placeholder="Rechercher un ingrédient"
+            />
+            <span class="fa-solid fa-angle-down arrow"></span>
+          </div>
+          <ul id="list-ing" class="list hide"></ul>
         </div>
-        <ul id="list-app" class="list hide">
 
-        </ul>
-      </div>
-
-      <!-- Custom Select Buttons -->
-      <div class="selector" id="red">
-        <div class="selectField">
-          <p id="selectText">Ustensils</p>
-          <input id="red-input" class="tag-input hide" type="text" placeholder="Rechercher un ustensile">
-          <span class="fa-solid fa-angle-down arrow"></span>
+        <!-- Custom Select Buttons -->
+        <div class="selector" id="green">
+          <div
+            class="selectField"
+            role="menu"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            tabindex="0"
+          >
+            <p class="selectText">Appareils</p>
+            <input
+              id="green-input"
+              class="tag-input hide"
+              type="text"
+              placeholder="Rechercher un appareil"
+            />
+            <span class="fa-solid fa-angle-down arrow"></span>
+          </div>
+          <ul id="list-app" class="list hide"></ul>
         </div>
-        <ul id="list-ust" class="list hide">
-          
-        </ul>
-      </div>
-    </div>
-  </section>
 
-  <main class="displayRecipes">
-    <!-- Filled dynamically -->
-  </main>
-</body>
+        <!-- Custom Select Buttons -->
+        <div class="selector" id="red">
+          <div class="selectField">
+            <p class="selectText">Ustensils</p>
+            <input
+              id="red-input"
+              class="tag-input hide"
+              type="text"
+              placeholder="Rechercher un ustensile"
+            />
+            <span class="fa-solid fa-angle-down arrow"></span>
+          </div>
+          <ul id="list-ust" class="list hide"></ul>
+        </div>
+      </div>
+    </section>
+
+    <main class="displayRecipes">
+      <!-- Filled dynamically -->
+    </main>
+  </body>
 </html>

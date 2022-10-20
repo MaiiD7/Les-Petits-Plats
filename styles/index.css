@@ -48,7 +48,7 @@ a {
   font-size: 18px;
 }
 
-.searchBar i {
+.searchBar span {
   font-size: 25px;
   position: absolute;
   top: 20px;
