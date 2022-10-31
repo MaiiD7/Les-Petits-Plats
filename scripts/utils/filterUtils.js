@@ -6,37 +6,62 @@ export const filterRecipesBySearch = (input, recipes) => {
 
   let allElements = []
   
-  recipes.forEach((recipe) => {
-    const matchingCard = document.getElementById(`${recipe.id}`)
+  for(var i=0; i < recipes.length; i++) {
+    const matchingCard = document.getElementById(`${recipes[i].id}`)
     matchingCard.classList.remove('hide')
 
     if (input.length > 2) {
-      const title = recipe.name
-      const ingredients = recipe.ingredients.map((ing) => ing.ingredient)
-      const appliances = recipe.appliance
-      const ustensils = recipe.ustensils
-      const description = recipe.description
-      const elements = [... ingredients, appliances, ... ustensils, description, title]
-      const lowerElements = elements.map(element => element.toLowerCase())
+      const title = recipes[i].name
+      let ingredients = []
 
-      if (!lowerElements.some((el) => el.includes(input.toLowerCase()))) {
+      for(var k= 0; k < recipes[i].ingredients.length; k++) {
+        ingredients.push(recipes[i].ingredients[k].ingredient)
+      }
+
+      const appliances = recipes[i].appliance
+      const ustensils = recipes[i].ustensils
+      const description = recipes[i].description
+      const elements = [... ingredients, appliances, ... ustensils, description, title]
+      let lowerElements = []
+
+      for(var l =0; l < elements.length; l++) {
+        lowerElements.push(elements[l].toLowerCase())
+      }
+
+      let includedFlag = false
+      let m =0
+      while(m < lowerElements.length ){
+        if (lowerElements[m].includes(input.toLowerCase())) {
+          allElements = [...allElements, ...lowerElements]
+          includedFlag = true
+        }
+        m++
+      }
+
+      if (includedFlag === false) {
         matchingCard.classList.add('hide')
-      } else {
-        allElements = [...allElements, ...lowerElements]
       }
     }
-  })
+  }
   
   let allTags = document.getElementById('tags').querySelectorAll('li')
-  allTags.forEach((el) => {
-    el.classList.remove('hide')
+  for(var j=0; j < allTags.length; j++) {
+    allTags[j].classList.remove('hide')
 
     if (input.length > 2) {
-      if (!allElements.includes(el.id.toLowerCase())) {
-        el.classList.add('hide')
+      let ingFlag = false
+      let n =0
+      while( n < allElements.length) {
+        if (allElements[n] === allTags[j].id.toLowerCase()) {
+          ingFlag = true
+        }
+        n++
+      }
+      if (ingFlag === false) {
+        allTags[j].classList.add('hide')
       }
   }
-  })
+  }
 
   const recipesList = document.querySelector('.displayRecipes')
   displayNoResult(recipes, recipesList)
