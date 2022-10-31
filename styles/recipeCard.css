@@ -21,6 +21,7 @@
   padding: 20px;
   background-color: #E7E7E7;
   height: 182px;
+  cursor: pointer;
 }
 
 .title-time-container {

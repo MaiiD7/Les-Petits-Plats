@@ -9,7 +9,8 @@ export const displayUtils = (recipes, recipesList) => {
     displayUtstensils(recipe)
     displayTags()
   })
-}
+  displayNoResult(recipes, recipesList)
+}  
 
 // Creates the card to be displayed for one recipe
 const displayOneRecipe = (recipe) => {
@@ -38,6 +39,32 @@ const displayOneRecipe = (recipe) => {
   `;
 
   return mainCard
+}
+
+// Display the message if no matching recipe is found
+export const displayNoResult = (recipes, recipesList) => {
+  if (recipes.every((recipe) => isHidden(recipe))) {
+    let noResults = document.getElementsByClassName('noResults')
+
+    if (noResults.length > 0) {
+      noResults.innerHTML = ""
+    } else {
+      noResults = document.createElement("div")
+      noResults.classList.add('noResults')
+      recipesList.appendChild(noResults)
+    }
+    
+    noResults.innerHTML = `
+      <p> Aucune recette ne correspond à vos critères … Vous pouvez chercher «tarte aux pommes», «poisson» ... </p>
+    `
+
+  }
+}
+
+// Check if recipe is visible or not
+const isHidden = (recipe) => {
+  const recipeCard = document.getElementById(`${recipe.id}`)
+  return (recipeCard.classList.contains('hide'))
 }
 
 // Adds the ingredients to both the card and the ingredient tag filter

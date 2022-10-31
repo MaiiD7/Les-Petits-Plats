@@ -1,3 +1,5 @@
+/* Style for the main container */
+
 .displayRecipes {
   display: flex;
   flex-wrap: wrap;
@@ -7,8 +9,13 @@
   align-items: center;
 }
 
+.noResults {
+  margin: 30px auto;
+}
+
 @media screen and (max-width: 1480px) {
   .displayRecipes {
     justify-content: space-around;
   }
 }
+

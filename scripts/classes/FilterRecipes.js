@@ -17,10 +17,12 @@ export default class FilterRecipes {
     const tagContainer = document.querySelector('.filters')
    
     allTags.forEach((filter) => {
+      
       if (this.tags.includes(filter.id)) {
         filter.classList.add('hide')
+        console.log(filter.id);
       }
-
+    
       filter.addEventListener('click', (e) => {
         if (!this.tags.includes(e.target.id)) {
           this.tags.push(e.target.id);
@@ -80,7 +82,7 @@ export default class FilterRecipes {
 }
 
 // Instanciation of the class in a variable and first calls
-let tags = []
+export let tags = []
 const filters = new FilterRecipes(recipes, tags)
 filters.addAndRemoveTagsToFilter(display)
 filters.mainInputFilter()

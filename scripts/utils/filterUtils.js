@@ -1,3 +1,4 @@
+import { displayNoResult } from "./displayUtils.js";
 // File containing all the functions needed to filter the recipes
 
 // Filter recipes from the main search bar
@@ -36,6 +37,9 @@ export const filterRecipesBySearch = (input, recipes) => {
       }
   }
   })
+
+  const recipesList = document.querySelector('.displayRecipes')
+  displayNoResult(recipes, recipesList)
 }
 
 // Filter recipes using the tag filters

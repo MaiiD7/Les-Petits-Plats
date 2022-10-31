@@ -54,3 +54,7 @@ a {
   top: 20px;
   right: 22px;
 }
+
+label {
+  display: none;
+}
