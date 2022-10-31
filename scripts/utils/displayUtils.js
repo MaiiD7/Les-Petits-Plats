@@ -43,12 +43,13 @@ const displayOneRecipe = (recipe) => {
 
 // Display the message if no matching recipe is found
 export const displayNoResult = (recipes, recipesList) => {
-  if (recipes.every((recipe) => isHidden(recipe))) {
-    let noResults = document.getElementsByClassName('noResults')
+  let noResults = document.getElementsByClassName('noResults')
+  if (noResults.length > 0) {
+    noResults[0].remove()
+  }
 
-    if (noResults.length > 0) {
-      noResults.innerHTML = ""
-    } else {
+  if (recipes.every((recipe) => isHidden(recipe))) {
+    
       noResults = document.createElement("div")
       noResults.classList.add('noResults')
       recipesList.appendChild(noResults)
@@ -57,8 +58,6 @@ export const displayNoResult = (recipes, recipesList) => {
     noResults.innerHTML = `
       <p> Aucune recette ne correspond à vos critères … Vous pouvez chercher «tarte aux pommes», «poisson» ... </p>
     `
-
-  }
 }
 
 // Check if recipe is visible or not
